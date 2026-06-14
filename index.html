@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebellsystem · Planbare Erstgespräche für B2B</title>
+<meta name="description" content="Wir liefern qualifizierte B2B-Erstgespräche in deinen Kalender — Recherche, persönliche Ansprache und Follow-up übernehmen wir. Du führst nur noch die Gespräche.">
+
+<!-- ============================================================= -->
+<!-- PLATZHALTER, die du noch ersetzt:                              -->
+<!--  1. CALENDLY_LINK  (überall: href="CALENDLY_LINK")            -->
+<!--  2. Telefonnummer im Footer (TEL_PLATZHALTER)                 -->
+<!--  3. Impressum / Datenschutz Links (#impressum, #datenschutz) -->
+<!--  4. Proof-Block "ECHTE ERGEBNISSE HIER EINSETZEN"            -->
+<!-- ============================================================= -->
+
+<style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter-400.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/inter-500.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/inter-600.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/inter-700.woff2') format('woff2')}
+</style>
+<style>
+  :root{
+    --bg:#0c0f12; --bg2:#0a0d10; --surface:#14181d; --surface2:#181d23;
+    --border:#252c34; --text:#e9edf0; --muted:#9aa3ac; --muted2:#6f7882;
+    --accent:#3fcf8e; --accent-hover:#34b87d; --accent-ink:#07120c;
+    --radius:14px; --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .accent{color:var(--accent)}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;padding:15px 26px;border-radius:12px;transition:.18s;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--border);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-sm{padding:11px 20px;font-size:15px}
+
+  /* Nav */
+  header{position:sticky;top:0;z-index:50;background:rgba(12,15,18,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:700;font-size:20px;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.txt{color:var(--muted);font-size:15px;font-weight:500;transition:.15s}
+  .nav-links a.txt:hover{color:var(--text)}
+
+  /* Hero */
+  .hero{padding:88px 0 76px;text-align:center;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:760px;height:760px;background:radial-gradient(circle,rgba(63,207,142,.10),transparent 62%);pointer-events:none}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(63,207,142,.10);border:1px solid rgba(63,207,142,.25);padding:7px 15px;border-radius:999px;margin-bottom:26px;position:relative}
+  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.07;font-weight:700;letter-spacing:-.025em;max-width:880px;margin:0 auto 24px;position:relative}
+  .sub{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:660px;margin:0 auto 38px;position:relative}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+  .trust{margin-top:26px;font-size:14px;color:var(--muted2);position:relative}
+
+  /* Sections */
+  section{padding:74px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 50px}
+  h2{font-size:clamp(27px,3.6vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
+  .sec-head p{color:var(--muted);font-size:17px}
+  .kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+
+  /* Problem */
+  .band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+  .card .ic{width:44px;height:44px;border-radius:11px;background:rgba(63,207,142,.10);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+  .card h3{font-size:18px;font-weight:600;margin-bottom:9px}
+  .card p{color:var(--muted);font-size:15px}
+
+  /* Steps (numbered) */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;position:relative}
+  .step .n{counter-increment:s;font-size:13px;font-weight:700;color:var(--accent-ink);background:var(--accent);width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .step .n:before{content:counter(s)}
+  .step h3{font-size:17px;font-weight:600;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  /* Result strip */
+  .result{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center;margin-top:34px}
+  .result strong{color:var(--accent)}
+  .result .big{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.01em}
+
+  /* Audience list */
+  .aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .aud .row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:16px 18px;font-size:15.5px;font-weight:500}
+  .aud .row .dot{color:var(--accent);font-size:18px}
+
+  /* Proof */
+  .proof{background:var(--surface);border:1px dashed var(--accent);border-radius:var(--radius);padding:30px;text-align:center;color:var(--muted)}
+  .proof .lbl{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:4px 22px;transition:.15s}
+  details[open]{border-color:var(--accent)}
+  summary{cursor:pointer;list-style:none;font-weight:600;font-size:16.5px;padding:18px 0;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary .chev{color:var(--accent);transition:.2s;font-size:20px}
+  details[open] summary .chev{transform:rotate(180deg)}
+  details p{color:var(--muted);font-size:15.5px;padding:0 0 20px}
+
+  /* Final CTA */
+  .final{text-align:center;background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--border)}
+  .final h2{margin-bottom:18px}
+  .final p{color:var(--muted);font-size:18px;max-width:560px;margin:0 auto 34px}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);padding:46px 0;background:var(--bg2)}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .foot .brand{font-weight:700;font-size:18px}
+  .foot .brand span{color:var(--accent)}
+  .foot .meta{color:var(--muted2);font-size:14px;line-height:1.9}
+  .foot .meta a:hover{color:var(--accent)}
+  .foot-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+  .foot-links a:hover{color:var(--accent)}
+
+  @media(max-width:640px){
+    section{padding:54px 0}.hero{padding:60px 0 50px}
+    .nav-links .txt{display:none}.cta-row .btn{width:100%;justify-content:center}
+    .foot{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Rebell<span>system</span></div>
+    <div class="nav-links">
+      <a class="txt" href="#ablauf">Ablauf</a>
+      <a class="txt" href="#fuer-wen">Für wen</a>
+      <a class="txt" href="#faq">FAQ</a>
+      <a class="btn btn-primary btn-sm" href="CALENDLY_LINK">Erstgespräch buchen</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">B2B-Akquise als Service</span>
+    <h1>Planbar neue Erstgespräche — ohne selbst kalt zu akquirieren.</h1>
+    <p class="sub">Wir finden passende Unternehmen, prüfen die echten Ansprechpartner, schreiben persönlich an und folgen nach. Du bekommst qualifizierte Erstgespräche in den Kalender — und führst nur noch das Gespräch.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="CALENDLY_LINK">Kostenloses Erstgespräch buchen →</a>
+      <a class="btn btn-ghost" href="#ablauf">So funktioniert's</a>
+    </div>
+    <div class="trust">Für Agenturen, Dienstleister, Berater &amp; B2B-Anbieter</div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<div class="band">
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Das Problem</div>
+      <h2>Fachlich top — aber der Kalender ist zu leer.</h2>
+      <p>Die meisten guten Dienstleister scheitern nicht am Können, sondern an planbarem Nachschub an Gesprächen.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">↘</div>
+        <h3>Anfragen schwanken</h3>
+        <p>Mal zu viel, mal Funkstille. Auf Empfehlungen allein lässt sich kein Wachstum planen.</p>
+      </div>
+      <div class="card">
+        <div class="ic">⏳</div>
+        <h3>Keine Zeit für Akquise</h3>
+        <p>Das Tagesgeschäft frisst die Zeit. Kaltakquise bleibt liegen — genau die, die Umsatz bringt.</p>
+      </div>
+      <div class="card">
+        <div class="ic">✕</div>
+        <h3>Spam funktioniert nicht</h3>
+        <p>Massenmails ohne echte Recherche landen im Papierkorb und beschädigen die Marke.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- LÖSUNG -->
+<section id="loesung">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Die Lösung</div>
+      <h2>Wir übernehmen deine komplette Erstansprache.</h2>
+      <p>Strukturiert, persönlich und nachvollziehbar — kein Spam, sondern echte Erstkontakte.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><h3>Passende Firmen finden</h3><p>Wir recherchieren Unternehmen, die wirklich zu deinem Angebot passen.</p></div>
+      <div class="step"><div class="n"></div><h3>Echte Ansprechpartner prüfen</h3><p>Keine info@-Adressen — wir verifizieren die richtige Person.</p></div>
+      <div class="step"><div class="n"></div><h3>Persönliche Erstansprache</h3><p>Individuelle Nachrichten, die gelesen und beantwortet werden.</p></div>
+      <div class="step"><div class="n"></div><h3>Antworten &amp; Follow-up</h3><p>Wir sortieren Antworten und fassen sauber nach, bis der Termin steht.</p></div>
+    </div>
+    <div class="result">
+      <p class="big">Ergebnis: <strong>qualifizierte Erstgespräche</strong> direkt in deinem Kalender.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<div class="band">
+<section id="ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">So läuft's ab</div>
+      <h2>In drei Schritten zu vollen Kalendern.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><h3>Erstgespräch &amp; Zielkunden</h3><p>Wir verstehen dein Angebot und definieren gemeinsam deine Wunschkunden.</p></div>
+      <div class="step"><div class="n"></div><h3>Wir starten die Akquise</h3><p>Recherche, Ansprache und Follow-up laufen an — du musst nichts aufsetzen.</p></div>
+      <div class="step"><div class="n"></div><h3>Du bekommst Termine</h3><p>Qualifizierte Gespräche landen im Kalender. Wir optimieren laufend.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FÜR WEN -->
+<section id="fuer-wen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Für wen</div>
+      <h2>Passt, wenn du planbar neue Kunden willst.</h2>
+    </div>
+    <div class="aud">
+      <div class="row"><span class="dot">●</span>Agenturen &amp; Marketing-Dienstleister</div>
+      <div class="row"><span class="dot">●</span>Berater &amp; Coaches im B2B</div>
+      <div class="row"><span class="dot">●</span>IT-, Software- &amp; Tech-Anbieter</div>
+      <div class="row"><span class="dot">●</span>Dienstleister mit klarem Angebot</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF (Platzhalter) -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="proof">
+      <!-- ECHTE ERGEBNISSE HIER EINSETZEN: 1-2 konkrete Zahlen oder eine Kundenstimme.
+           Beispiel: "X Erstgespräche in Y Wochen für Kunde Z." Nichts erfinden. -->
+      <div class="lbl">Ergebnisse</div>
+      <p>Hier kommt dein echter Beweis rein — eine konkrete Zahl oder Kundenstimme.<br>Z. B. „X qualifizierte Erstgespräche in den ersten Wochen." (Platzhalter — von dir füllbar.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="band">
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">FAQ</div>
+      <h2>Häufige Fragen.</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Ist das nicht einfach Spam? <span class="chev">⌄</span></summary><p>Nein. Wir prüfen für jedes Unternehmen den echten Ansprechpartner und schreiben individuell an. Keine Massenmails, keine gekauften Listen — sondern persönliche Erstkontakte, die gelesen werden.</p></details>
+      <details><summary>Wie schnell kommen die ersten Termine? <span class="chev">⌄</span></summary><p>Nach dem Onboarding starten wir zügig mit der Ansprache. Erste Reaktionen kommen meist innerhalb der ersten Wochen — den realistischen Rahmen für deine Zielgruppe klären wir im Erstgespräch.</p></details>
+      <details><summary>Was muss ich selbst tun? <span class="chev">⌄</span></summary><p>Sehr wenig. Du gibst uns dein Angebot und deine Wunschkunden — den Rest übernehmen wir. Du führst nur noch die Gespräche, die für dich vorbereitet im Kalender stehen.</p></details>
+      <details><summary>Ist das DSGVO-konform? <span class="chev">⌄</span></summary><p>Wir arbeiten mit öffentlich verfügbaren Geschäftskontakten und einer sauberen, nachvollziehbaren Ansprache im B2B-Kontext. Details besprechen wir transparent im Erstgespräch.</p></details>
+      <details><summary>Was kostet das? <span class="chev">⌄</span></summary><p>Das hängt von Zielgruppe, Volumen und Ziel ab. Im kostenlosen Erstgespräch schauen wir, ob es passt, und nennen dir ein transparentes Angebot — ohne Verpflichtung.</p></details>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Bereit für planbare Erstgespräche?</h2>
+    <p>Buch dir ein kostenloses Erstgespräch. Wir schauen gemeinsam, ob und wie wir deinen Kalender füllen.</p>
+    <a class="btn btn-primary" href="CALENDLY_LINK">Jetzt Erstgespräch buchen →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand">Rebell<span>system</span></div>
+      <div class="meta">B2B-Akquise als Service</div>
+    </div>
+    <div class="meta">
+      <a href="mailto:emilio.allegro@rebellsystem.de">emilio.allegro@rebellsystem.de</a><br>
+      <!-- TEL_PLATZHALTER: echte Nummer prüfen/ersetzen -->
+      <a href="tel:+4915128141644">0151 28141644</a>
+    </div>
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="https://b2b.rebellsystem.com">b2b.rebellsystem.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
